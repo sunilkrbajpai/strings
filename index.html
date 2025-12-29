@@ -17,6 +17,7 @@
             z-index: -1;
             opacity: 0.4;
             animation: float 10s infinite ease-in-out;
+            max-width: 100vw; /* Prevent blob from forcing scroll */
         }
         @keyframes float {
             0% { transform: translate(0, 0) scale(1); }
@@ -53,11 +54,11 @@
         }
     </style>
 </head>
-<body class="bg-white text-gray-800 overflow-x-hidden">
+<body class="bg-white text-gray-800 overflow-x-hidden w-full">
 
-    <!-- Decorative Blobs -->
-    <div class="blob bg-rose-300 w-64 h-64 md:w-96 md:h-96 rounded-full top-0 left-0 -translate-x-1/2 -translate-y-1/2"></div>
-    <div class="blob bg-purple-300 w-56 h-56 md:w-80 md:h-80 rounded-full bottom-0 right-0 translate-x-1/3 translate-y-1/3"></div>
+    <!-- Decorative Blobs - Adjusted positioning for mobile to prevent overflow -->
+    <div class="blob bg-rose-300 w-48 h-48 md:w-96 md:h-96 rounded-full top-0 left-0 -translate-x-1/4 -translate-y-1/4"></div>
+    <div class="blob bg-purple-300 w-40 h-40 md:w-80 md:h-80 rounded-full bottom-0 right-0 translate-x-1/4 translate-y-1/4"></div>
 
     <!-- Navigation -->
     <nav class="container mx-auto px-4 md:px-6 py-4 md:py-6 flex justify-between items-center relative z-50">
@@ -74,8 +75,8 @@
     </nav>
 
     <!-- Hero Section -->
-    <header class="container mx-auto px-4 md:px-6 pt-8 pb-16 md:pt-20 md:pb-32 flex flex-col md:flex-row items-center relative">
-        <div class="w-full md:w-1/2 text-center md:text-left z-10 mb-12 md:mb-0">
+    <header class="container mx-auto px-4 md:px-6 pt-8 pb-16 md:pt-20 md:pb-32 flex flex-col md:flex-row items-center relative max-w-full">
+        <div class="w-full md:w-1/2 text-center md:text-left z-10 mb-12 md:mb-0 px-2">
             <div class="inline-block bg-rose-100 text-rose-600 px-4 py-1.5 rounded-full text-xs md:text-sm font-extrabold mb-6 tracking-wide uppercase">
                 Made with ❤️ for India
             </div>
@@ -104,13 +105,13 @@
             </div>
         </div>
 
-        <div class="w-full md:w-1/2 relative flex justify-center">
+        <div class="w-full md:w-1/2 relative flex justify-center px-4 overflow-hidden md:overflow-visible">
             <!-- Abstract background shape behind phone -->
             <div class="absolute w-[120%] h-[120%] bg-gradient-to-tr from-rose-100 to-purple-100 rounded-full opacity-50 blur-3xl -z-10 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></div>
             
             <!-- Phone Mockup -->
             <!-- Responsive width: w-64 on mobile, w-72 on larger screens -->
-            <div class="phone-mockup w-64 h-[512px] sm:w-72 sm:h-[580px] bg-white z-10 shadow-2xl transform rotate-3 hover:rotate-0 transition duration-500 mx-auto">
+            <div class="phone-mockup w-64 h-[512px] sm:w-72 sm:h-[580px] bg-white z-10 shadow-2xl transform rotate-3 hover:rotate-0 transition duration-500 mx-auto max-w-[90vw]">
                 <div class="phone-notch"></div>
                 <!-- Full Screen Screenshot -->
                 <img src="mobile.png" alt="Strings App Screenshot" class="w-full h-full object-cover">
